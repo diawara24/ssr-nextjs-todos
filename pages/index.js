@@ -1,16 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 import axios from 'axios';
+import Head from 'next/head';
 
 const Home = ({ todos }) => {
   return (
     <div>
+      <Head>
+        <title>Todos</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <h1>Liste des tâches</h1>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             <Link href={`/todo/${todo.id}`}>
-              <a>{todo.title}</a>
+              {todo.title}
             </Link>
           </li>
         ))}
